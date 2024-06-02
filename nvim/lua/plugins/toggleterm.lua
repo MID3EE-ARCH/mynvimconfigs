@@ -5,7 +5,6 @@ return {
   config = function()
     require("toggleterm").setup{
       size = 16,  -- Default size for terminals
-      open_mapping = [[<leader>tt]],  -- Default mapping for opening terminal at bottom
       hide_numbers = true,
       shade_filetypes = {},
       shade_terminals = true,

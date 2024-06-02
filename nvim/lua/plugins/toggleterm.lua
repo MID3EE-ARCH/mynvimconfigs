@@ -26,8 +26,9 @@ return {
       -- Custom key mappings within the setup function
       mappings = {
         {
-          key = "<leader>tt",
+          key = "<leader>th",
           cmd = "ToggleTerm direction=horizontal",
+          size = 12,
           desc = "Open horizontal split terminal"
         },
         {
@@ -36,6 +37,7 @@ return {
           desc = "Open floating terminal"
         },
         {
+          size = 18,
           key = "<leader>tv",
           cmd = function()
             vim.cmd("lua require('toggleterm').exec('ToggleTerm direction=vertical size=50')")
@@ -48,7 +50,6 @@ return {
     -- Register custom key mappings
     local function register_custom_mappings()
       local mappings = {
-        {key = "<leader>tt", cmd = "ToggleTerm direction=horizontal"},
         {key = "<leader>tf", cmd = "ToggleTerm direction=float"},
         {key = "<leader>tv", cmd = "ToggleTerm direction=vertical"},
         {key = "<leader>th", cmd = "ToggleTerm direction=horizontal"},

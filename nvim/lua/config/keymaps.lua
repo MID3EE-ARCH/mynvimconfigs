@@ -16,8 +16,9 @@ mapkey("<leader>`", "e #", "n") -- Switch to Other Buffer
 mapkey("<leader>bd", "bd", "n") -- Close current buffer
 
 -- Directory Navigation
-mapkey("<leader>m", "NvimTreeFocus", "n")
-mapkey("<leader>e", "NvimTreeToggle", "n")
+-- mapkey("<leader>m", "NvimTreeFocus", "n")
+mapkey("<leader>m", "NvimTreeToggle", "n")
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Pane and Window Navigation
 mapkey("<C-h>", "<C-w>h", "n") -- Navigate Left
@@ -65,4 +66,14 @@ vim.api.nvim_set_keymap("n", "<C-f>", "gtc", { noremap = false })
 
 -- Define a keymap to toggle between themes
 vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>lua require("theme").toggle_theme()<CR>', { noremap = true, silent = true })
+
+-- Move line up
+vim.api.nvim_set_keymap('n', '<A-Up>', ':m .-2<CR>==', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<A-Up>', '<Esc>:m .-2<CR>==gi', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<A-Up>', ':m \'<-2<CR>gv=gv', { noremap = true, silent = true })
+
+-- Move line down
+vim.api.nvim_set_keymap('n', '<A-Down>', ':m .+1<CR>==', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<A-Down>', '<Esc>:m .+1<CR>==gi', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<A-Down>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true })
 

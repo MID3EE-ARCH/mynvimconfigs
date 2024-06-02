@@ -9,6 +9,8 @@ return {
 			view = {
 				adaptive_size = true,
 			},
+      update_cwd=true,
+
 		})
 	end,
 }

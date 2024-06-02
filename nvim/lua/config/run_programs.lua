@@ -20,9 +20,10 @@ function RunCProgram()
   -- Get the name of the current file without extension
   local current_file = vim.fn.expand('%:r')
   local current_dir = vim.fn.expand('%:p:h')
+  local executable_path = current_dir .. '/' .. vim.fn.fnamemodify(current_file, ':t')
 
   -- Compile the C file
-  vim.cmd('!gcc % -o ' .. current_file)
+  vim.cmd('!gcc % -o ' .. executable_path)
 
   -- If the compilation is successful, run the executable
   if vim.v.shell_error == 0 then
@@ -36,7 +37,7 @@ function RunCProgram()
       vim.g.terminal_buf = vim.fn.bufnr('%')
     end
     -- Change directory to the current file's directory and run the compiled program
-    local cmd = 'cd ' .. current_dir .. ' && clear && ./' .. current_file .. ' && echo "Press any key to close..." && read -n 1\n'
+    local cmd = 'cd ' .. current_dir .. ' && clear && ./' .. vim.fn.fnamemodify(current_file, ':t') .. ' && echo "Press any key to close..." && read -n 1\n'
     vim.fn.chansend(vim.b.terminal_job_id, cmd)
   else
     print("Compilation failed!")
@@ -46,4 +47,5 @@ end
 -- Map the function to <Leader>r and terminal toggle to <Leader>x
 vim.api.nvim_set_keymap('n', '<Leader>r', ':lua RunCProgram()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>x', ':lua ToggleTerminal()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<F5>', ':w<CR>:!gcc -o %:r % && ./%:r<CR>', { noremap = true, silent = true })
 

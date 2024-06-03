@@ -5,6 +5,7 @@ return {
 	dependencies = "zbirenbaum/copilot-cmp",
 	config = function()
 		require("copilot").setup(require("copilot").setup({
+      autostart = true,
 			panel = {
 				enabled = true,
 				auto_refresh = false,

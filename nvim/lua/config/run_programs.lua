@@ -8,7 +8,7 @@ function ToggleTerminal()
     vim.g.terminal_buf = nil
     return
   end
-  vim.cmd('botright split term://bash')
+  vim.cmd('botright split term://zsh')
   vim.g.terminal_buf = vim.fn.bufnr('%')
 end
 
@@ -33,7 +33,7 @@ function RunCProgram()
       vim.cmd('exec "buffer " .. vim.g.terminal_buf')
     else
       -- Open a new terminal if one doesn't exist
-      vim.cmd('botright split term://bash')
+      vim.cmd('botright split term://zsh')
       vim.g.terminal_buf = vim.fn.bufnr('%')
     end
     -- Change directory to the current file's directory and run the compiled program

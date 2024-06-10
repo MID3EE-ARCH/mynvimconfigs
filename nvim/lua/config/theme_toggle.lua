@@ -1,7 +1,7 @@
 -- ~/.config/nvim/lua/config/theme_toggle.lua
 
 -- Define the available themes
-local themes = { "tokyonight", "catppuccin", "gruvbox" }
+local themes = { "neofusion", "tokyonight","catppuccin", "gruvbox" }
 local current_theme_index = 1
 
 -- Function to toggle between themes

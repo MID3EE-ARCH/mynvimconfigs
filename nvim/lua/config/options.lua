@@ -1,4 +1,5 @@
 local opt = vim.opt
+opt.cmdheight = 2
 
 -- Tab / Indentation
 opt.tabstop = 2

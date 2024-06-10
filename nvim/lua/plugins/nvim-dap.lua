@@ -21,7 +21,7 @@ return {
 		-- add event listeners
 		dap.listeners.after.event_initialized["dapui_config"] = function()
 			dapui.open()
-			vim.cmd("Hardtime disable")
+			-- vim.cmd("Hardtime disable")
 			vim.cmd("NvimTreeClose")
 		end
 

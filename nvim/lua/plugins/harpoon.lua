@@ -43,30 +43,6 @@ return {
             ":lua require('harpoon.ui').nav_file(4)<CR>",
             { noremap = true, silent = true }
         )
-        vim.api.nvim_set_keymap(
-            "n",
-            "<leader><C-h>",
-            ":lua require('harpoon.ui').nav_file(1, true)<CR>",
-            { noremap = true, silent = true }
-        )
-        vim.api.nvim_set_keymap(
-            "n",
-            "<leader><C-t>",
-            ":lua require('harpoon.ui').nav_file(2, true)<CR>",
-            { noremap = true, silent = true }
-        )
-        vim.api.nvim_set_keymap(
-            "n",
-            "<leader><C-n>",
-            ":lua require('harpoon.ui').nav_file(3, true)<CR>",
-            { noremap = true, silent = true }
-        )
-        vim.api.nvim_set_keymap(
-            "n",
-            "<C-i>",
-            ":lua require('harpoon.ui').nav_file(4, true)<CR>",
-            { noremap = true, silent = true }
-        )
     end,
 }
 

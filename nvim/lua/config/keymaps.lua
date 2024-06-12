@@ -73,3 +73,7 @@ vim.api.nvim_set_keymap('n', '<Leader>j', ':m .+1<CR>==', { noremap = true, sile
 -- Move line up in normal mode
 vim.api.nvim_set_keymap('n', '<Leader>k', ':m .-2<CR>==', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tt', ':lua toggle_transparency()<CR>', { noremap = true, silent = true })
+
+-- Move blocks up and down and also indent
+vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", {})
+vim.api.nvim_set_keymap("v", "K", ":m '>-2<CR>gv=gv", {})

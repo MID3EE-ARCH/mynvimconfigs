@@ -21,7 +21,7 @@ return {
         )
         vim.api.nvim_set_keymap(
             "n",
-            "<C-h>",
+            "<C-b>",
             ":lua require('harpoon.ui').nav_file(1)<CR>",
             { noremap = true, silent = true }
         )

@@ -18,7 +18,6 @@ require("config.autocmds")
 require("config.theme_toggle")
 require("config.run_programs")
 require("config.helpers")
-
 local plugins = "plugins"
 
 local opts = {
@@ -49,5 +48,5 @@ local opts = {
 require("lazy").setup(plugins, opts)
 
 -- Set the default colorscheme
-vim.cmd("colorscheme gruvbox") -- Change to your preferred default theme
+vim.cmd("colorscheme neofusion") -- Change to your preferred default theme
 

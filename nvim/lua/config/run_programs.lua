@@ -47,5 +47,4 @@ end
 -- Map the function to <Leader>r and terminal toggle to <Leader>x
 vim.api.nvim_set_keymap('n', '<Leader>r', ':lua RunCProgram()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>x', ':lua ToggleTerminal()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<F5>', ':w<CR>:!gcc -o %:r % && ./%:r<CR>', { noremap = true, silent = true })
 

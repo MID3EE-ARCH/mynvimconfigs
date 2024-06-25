@@ -4,14 +4,19 @@ return {
   lazy = false,
   config = function()
     require("toggleterm").setup{
-      size = 16,  -- Default size for terminals
-      hide_numbers = true,
+      size = function(term)
+        if term.direction == "horizontal" then
+          return 18
+        elseif term.direction == "vertical" then
+          return vim.o.columns * 0.4
+        end
+      end,
+      open_mapping = [[\\]],
       shade_filetypes = {},
       shade_terminals = true,
       shading_factor = '1',
       start_in_insert = true,
       insert_mappings = true,
-      persist_size = true,
       direction = "horizontal",
       close_on_exit = true,
       shell = vim.o.shell,
@@ -23,34 +28,13 @@ return {
           background = "Normal",
         },
       },
-      -- Custom key mappings within the setup function
-      mappings = {
-        {
-          key = "<leader>th",
-          cmd = "ToggleTerm direction=horizontal",
-          size = 12,
-          desc = "Open horizontal split terminal"
-        },
-        {
-          key = "<leader>tf",
-          cmd = "ToggleTerm direction=float",
-          desc = "Open floating terminal"
-        },
-        {
-          size = 18,
-          key = "<leader>tv",
-          cmd = function()
-            vim.cmd("lua require('toggleterm').exec('ToggleTerm direction=vertical size=50')")
-          end,
-          desc = "Open vertical split terminal with custom size"
-        },
-      },
     }
 
     -- Register custom key mappings
     local function register_custom_mappings()
       local mappings = {
         {key = "<leader>tf", cmd = "ToggleTerm direction=float"},
+        {key = "<leader>tt", cmd = "ToggleTerm direction=tab"},
         {key = "<leader>tv", cmd = "ToggleTerm direction=vertical"},
         {key = "<leader>th", cmd = "ToggleTerm direction=horizontal"},
       }
@@ -62,5 +46,4 @@ return {
     register_custom_mappings()
   end,
 }
-
 

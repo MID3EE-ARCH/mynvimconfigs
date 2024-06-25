@@ -5,8 +5,8 @@ vim.g.mapleader = " "
 local mapkey = require("util.keymapper").mapvimkey
 
 -- Remap Ctrl+U and Ctrl+D to move 7 lines up and down
-vim.api.nvim_set_keymap('n', '<C-u>', '8k', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-d>', '8j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-u>", "8k", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-d>", "8j", { noremap = true, silent = true })
 
 -- Buffer Navigation
 mapkey("<leader>bn", "bnext", "n") -- Next buffer
@@ -56,8 +56,8 @@ vim.keymap.set("v", ">", ">gv", { silent = true, noremap = true })
 
 -- Zen Mode
 vim.api.nvim_set_keymap("n", "<leader>zn", ":TZNarrow<CR>", {})
-vim.api.nvim_set_keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>sm", ":TZFocus<CR>", {})
+vim.api.nvim_set_keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>zm", ":TZMinimalist<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
 
@@ -65,15 +65,20 @@ vim.api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
 vim.api.nvim_set_keymap("n", "<C-f>", "gtc", { noremap = false })
 
 -- Define a keymap to toggle between themes
-vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>lua require("theme").toggle_theme()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>gg",
+	'<cmd>lua require("theme").toggle_theme()<CR>',
+	{ noremap = true, silent = true }
+)
 
 -- Move line down in normal mode
-vim.api.nvim_set_keymap('n', '<Leader>j', ':m .+1<CR>==', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>j", ":m .+1<CR>==", { noremap = true, silent = true })
 
 -- Move line up in normal mode
-vim.api.nvim_set_keymap('n', '<Leader>k', ':m .-2<CR>==', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>tt', ':lua toggle_transparency()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>k", ":m .-2<CR>==", { noremap = true, silent = true })
 
 -- Move blocks up and down and also indent
-vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", {})
-vim.api.nvim_set_keymap("v", "K", ":m '>-2<CR>gv=gv", {})
+vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+

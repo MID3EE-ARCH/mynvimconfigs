@@ -43,8 +43,6 @@ return {
 			local neofusion = require("neofusion")
 			neofusion.setup({
 				terminal_colors = true, -- add neovim terminal colors
-				undercurl = true,
-				underline = true,
 				bold = true,
 				italic = {
 					strings = true,
@@ -53,13 +51,6 @@ return {
 					operators = false,
 					folds = true,
 				},
-				strikethrough = true,
-				invert_intend_guides = false,
-				inverse = true, -- invert background for search, diffs, statuslines and errors
-				palette_overrides = {},
-				overrides = {},
-				dim_inactive = false,
-				transparent_mode = false,
 			})
 		end,
 	},

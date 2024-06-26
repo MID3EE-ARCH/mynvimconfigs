@@ -2,11 +2,8 @@
 
 -- Define the available themes and their corresponding configurations
 local themes = {
-	{ name = "solarized-osaka", config = nil },
-	{ name = "neofusion", config = nil },
-	{ name = "catppuccin", config = nil },
 	{ name = "tokyonight", config = nil },
-	{ name = "gruvbox", config = nil },
+	{ name = "midnight", config = nil },
 }
 local current_theme_index = 1
 
@@ -23,4 +20,3 @@ end
 
 -- Map the key combination <leader>gg to toggle themes
 vim.api.nvim_set_keymap("n", "<leader>gg", ":lua toggle_theme()<CR>", { noremap = true, silent = true })
-

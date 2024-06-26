@@ -25,7 +25,7 @@ local opts = {
 		lazy = true,
 	},
 	install = {
-		colorscheme = { "neofusion","solarized-osaka","catppuccin","tokyonight", "gruvbox" },
+		colorscheme = { "midnight", "tokyonight" },
 	},
 	rtp = {
 		disabled_plugins = {
@@ -48,5 +48,4 @@ local opts = {
 require("lazy").setup(plugins, opts)
 
 -- Set the default colorscheme
-vim.cmd("colorscheme solarized-osaka") -- Change to your preferred default theme
-
+vim.cmd("colorscheme tokyonight") -- Change to your preferred default theme

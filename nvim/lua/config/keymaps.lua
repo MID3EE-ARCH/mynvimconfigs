@@ -16,9 +16,18 @@ mapkey("<leader>`", "e #", "n") -- Switch to Other Buffer
 mapkey("<leader>bd", "bd", "n") -- Close current buffer
 
 -- Directory Navigation
--- mapkey("<leader>m", "NvimTreeFocus", "n")
 mapkey("<leader>m", "NvimTreeToggle", "n")
 vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Debugging
+vim.api.nvim_set_keymap('n', '<leader>db', '<cmd>lua require("dap").toggle_breakpoint()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>dr', '<cmd>lua require("dap").continue()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>st', '<cmd>lua require("dap").start()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ss', '<cmd>lua require("dap").step_over()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>si', '<cmd>lua require("dap").step_into()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>so', '<cmd>lua require("dap").step_out()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>sc', '<cmd>lua require("dap").continue()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>sd', '<cmd>lua require("dap").disconnect()<CR>', { noremap = true, silent = true })
 
 -- Pane and Window Navigation
 mapkey("<C-h>", "<C-w>h", "n") -- Navigate Left

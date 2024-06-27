@@ -1,59 +1,25 @@
 local config = function()
 	require("bufferline").setup({
 		options = {
+      lazy = false,
 			theme = "auto",
 			globalstatus = true,
 			color_icons = true,
 		},
-		highlights = {
-			fill = {
-				ctermbg = "24283b",
-				bg = "#24283b",
-			},
-			background = {
-				ctermbg = "24283b",
-				bg = "#24283b",
-			},
-			buffer_selected = {
-				ctermbg = "24283b",
-				bg = "#24283b",
-			},
-			buffer_visible = {
-				ctermbg = "24283b",
-				bg = "#24283b",
-			},
-			close_button = {
-				ctermbg = "24283b",
-				bg = "#24283b",
-			},
-			close_button_selected = {
-				ctermbg = "24283b",
-				bg = "#24283b",
-			},
-			close_button_visible = {
-				ctermbg = "24283b",
-				bg = "#24283b",
-			},
-			separator = {
-				ctermbg = "24283b",
-				bg = "#24283b",
-			},
-			separator_selected = {
-				ctermbg = "24283b",
-				bg = "#24283b",
-			},
-			separator_visible = {
-				ctermbg = "24283b",
-				bg = "#24283b",
-			},
-		},
+    highlights = {
+      buffer_selected = {
+        fg = "#ffffff",
+        gui = "bold",
+        bg = "NONE",
+      }
+    }
 	})
 end
 
 return {
 	"akinsho/bufferline.nvim",
+  lazy = false,
 	version = "*",
 	dependencies = "nvim-tree/nvim-web-devicons",
-	lazy = false,
 	config = config,
 }

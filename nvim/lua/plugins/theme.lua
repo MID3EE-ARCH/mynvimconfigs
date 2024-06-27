@@ -1,5 +1,6 @@
 -- ~/.config/nvim/lua/plugins/theme.lua
 return {
+	{ "marko-cerovac/material.nvim", lazy = false, config = function() end },
 	{
 		"folke/tokyonight.nvim",
 		lazy = false, -- Ensure it is loaded immediately for default settings

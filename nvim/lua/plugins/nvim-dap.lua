@@ -5,27 +5,38 @@ local plugins = {
 		config = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
-      dap.adapters.lldb = {
-      type = 'executable',
-      command = '/usr/bin/lldb-vscode',
-      name = "lldb"
-      }
-      dap.configurations.c = {
-      {
-          type = 'lldb',
-          name = "Launch",
-          request = 'launch',
-          program = function()
-              return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-              end,
-          cwd = '${workspaceFolder}',
-          stopOnEntry = false,
-        },
-      }
+
+			-- Define the LLDB adapter
+			dap.adapters.lldb = {
+				type = "executable",
+				command = "/usr/bin/lldb-vscode", -- Path to your LLDB VSCode executable
+				name = "lldb",
+			}
+
+			-- Configure the C debugging session
+			dap.configurations.c = {
+				{
+					type = "lldb",
+					name = "Launch",
+					request = "launch",
+					program = function()
+						-- Prompt for executable path, defaulting to /home/MyCodes/
+						return vim.fn.input("Path to executable: ", "~/MyCodes/", "file")
+					end,
+					cwd = "${workspaceFolder}", -- Set the workspace folder as the working directory
+					stopOnEntry = false,
+				},
+			}
+
+			-- Setup dapui
 			dapui.setup()
+
+			-- Open dapui on initialized events
 			dap.listeners.after.event_initialized["dapui_config"] = function()
 				dapui.open()
 			end
+
+			-- Close dapui on terminated and exited events
 			dap.listeners.after.event_terminated["dapui_config"] = function()
 				dapui.close()
 			end
@@ -35,20 +46,7 @@ local plugins = {
 		end,
 		dependencies = { "mfussenegger/nvim-dap" },
 	},
-	{
-		"jay-babu/mason-nvim-dap.nvim",
-		lazy = false,
-		config = function()
-			-- Configuration for mason-nvim-dap.nvim if needed
-		end,
-		event = "VeryLazy",
-		dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
-		opts = {
-			handlers = {},
-			ensure_installed = { "codelldb" },
-		},
-	},
-	{ "mfussenegger/nvim-dap", lazy = false },
+	-- Other plugins configuration entries...
 }
 
-return plugins, dap
+return plugins

@@ -97,5 +97,5 @@ vim.api.nvim_set_keymap("n", "<leader>j", ":m .+1<cr>==", { noremap = true, sile
 vim.api.nvim_set_keymap("n", "<leader>k", ":m .-2<cr>==", { noremap = true, silent = true })
 
 -- move blocks up and down and also indent
-vim.api.nvim_set_keymap("v", "j", ":m '>+1<cr>gv=gv", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "k", ":m '<-2<cr>gv=gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "J", ":m '>+1<cr>gv=gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "K", ":m '<-2<cr>gv=gv", { noremap = true, silent = true })

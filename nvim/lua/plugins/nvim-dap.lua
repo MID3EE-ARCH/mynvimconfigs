@@ -27,7 +27,6 @@ local plugins = {
 					stopOnEntry = false,
 				},
 			}
-
 			-- Setup dapui
 			dapui.setup()
 
@@ -46,7 +45,6 @@ local plugins = {
 		end,
 		dependencies = { "mfussenegger/nvim-dap" },
 	},
-	-- Other plugins configuration entries...
 }
 
 return plugins

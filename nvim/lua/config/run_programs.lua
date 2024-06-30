@@ -12,7 +12,7 @@ function RunCProgram()
     local executable_path = current_dir .. "/" .. vim.fn.fnamemodify(current_file, ":t")
 
     -- Compile the C file
-    vim.cmd("!gcc -g % -o " .. executable_path)
+    vim.cmd("!gcc -Wall -g % -o " .. executable_path)
 
     -- If the compilation is successful, run the executable
     if vim.v.shell_error == 0 then
@@ -37,4 +37,3 @@ end
 
 -- Map the function to <Leader>r
 vim.api.nvim_set_keymap("n", "<Leader>r", ":lua RunCProgram()<CR>", { noremap = true, silent = true })
-
